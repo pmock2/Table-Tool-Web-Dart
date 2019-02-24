@@ -1,0 +1,45 @@
+.dashboard-item {
+    width: 155px;
+    height: 155px;
+    background: rgba(0,0,0,0.5);
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dashboard-item:hover {
+    background: rgba(0,0,0,0.55);
+}
+
+.item-icon {
+    text-align: center;
+    width: 100%;
+    margin-top: 35px;
+    font-size: 44px;
+    transition: 0.2s;
+}
+
+.dashboard-item:hover .item-icon {
+    color: #1668CF;
+}
+
+.item-title {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 16px;
+    color: rgba(255,255,255,0.7);
+    transition: 0.2s;
+}
+
+.dashboard-item:hover .item-title {
+    color: white;
+}
+
+.item-dots {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 17px;
+}
