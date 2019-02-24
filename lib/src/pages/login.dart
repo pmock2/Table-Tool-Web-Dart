@@ -67,34 +67,43 @@ class LoginPage extends Page {
         signUpPage.show();
       }),
       loginButton.onClick.listen((e) {
-        if (username.value != '' && password.value != '') {
-          HttpRequest.request("${serverUrl}/session",
-                  method: "POST",
-                  withCredentials: true,
-                  requestHeaders: {"content-type": "application/JSON"},
-                  sendData: jsonEncode(
-                      {"userName": username.value, "password": password.value}))
+        login();
+      }),
+      window.onKeyDown.listen((KeyboardEvent k) {
+        if (k.keyCode == 13) {
+          login();
+        }
+      })
+    ]);
+  }
+
+  void login() {
+    if (username.value != '' && password.value != '') {
+      HttpRequest.request("${serverUrl}/session",
+              method: "POST",
+              withCredentials: true,
+              requestHeaders: {"content-type": "application/JSON"},
+              sendData: jsonEncode(
+                  {"userName": username.value, "password": password.value}))
+          .then((response) {
+        if (response.status == 200) {
+          HttpRequest.request("${serverUrl}/account",
+                  method: "GET", withCredentials: true)
               .then((response) {
-            if (response.status == 200) {
-              HttpRequest.request("${serverUrl}/account",
-                      method: "GET", withCredentials: true)
-                  .then((response) {
-                userProfile = jsonDecode(response.response);
-                dashbaordPage.show();
-                loggingIn.add(true);
-              }).catchError((e) {
-                loggingIn.add(false);
-              });
-            } else {
-              window.alert('Not Logged in!');
-            }
+            userProfile = jsonDecode(response.response);
+            dashbaordPage.show();
+            loggingIn.add(true);
           }).catchError((e) {
-            status.text = 'Incorrect username or password';
+            loggingIn.add(false);
           });
         } else {
-          status.text = 'Please fill out all fields';
+          window.alert('Not Logged in!');
         }
-      }),
-    ]);
+      }).catchError((e) {
+        status.text = 'Incorrect username or password';
+      });
+    } else {
+      status.text = 'Please fill out all fields';
+    }
   }
 }

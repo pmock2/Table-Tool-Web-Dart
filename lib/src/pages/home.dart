@@ -17,15 +17,6 @@ class Home extends Page{
           <button class="get-started-button" to="/join">Get Started</button>
         </div>
       </div>
-      <div class="page-section">
-        <div class="page-section-title">My Title</div>
-        <div class="page-section-content"></div>
-      </div>
-      <div class="page-section">
-        <div class="page-section-title">My Title</div>
-        <div class="page-section-content"></div>
-      </div>
-    </div>
     ''';
     content.setInnerHtml(innerHtml, treeSanitizer: NullTreeSanitizer());
 

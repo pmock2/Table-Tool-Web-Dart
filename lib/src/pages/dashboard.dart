@@ -4,7 +4,9 @@ DashboardPage dashbaordPage = DashboardPage._private();
 
 class DashboardPage extends Page {
   DashboardPage._private();
-  DivElement cardSection =DivElement();
+  DivElement cardSection = DivElement();
+  ButtonElement createCampaginButton;
+  DialogWindow createCampaignWindow;
 
   void show() {
     clear();
@@ -31,26 +33,31 @@ class DashboardPage extends Page {
       </div>
     ''';
     content.setInnerHtml(markup, treeSanitizer: NullTreeSanitizer());
-    cardSection =findInContent('.card-section');
+    cardSection = findInContent('.card-section');
+    createCampaginButton =findInContent('.create-campaign-button');
 
     _getCampaigns();
     _wireItUp();
   }
 
   void _wireItUp() {
-    // listeners.addAll([
-
-    //   })
-    // ]);
+    listeners.addAll([
+      createCampaginButton.onClick.listen((e) {
+        createCampaign();
+      })
+    ]);
   }
 
   void _getCampaigns() {
-    HttpRequest.request("${serverUrl}/campaign", withCredentials: true, method: 'GET').then((response) {
+    HttpRequest.request("${serverUrl}/campaign",
+            withCredentials: true, method: 'GET')
+        .then((response) {
       var data = jsonDecode(response.response);
       if (data is List) {
         data.forEach((campaignItem) {
           if (campaignItem is Map) {
-            DashboardItem item = DashboardItem(ItemType.CAMPAIGN, campaignItem['name']);
+            DashboardItem item =
+                DashboardItem(ItemType.CAMPAIGN, campaignItem['name']);
             cardSection.append(item.element);
           }
         });
@@ -58,5 +65,9 @@ class DashboardPage extends Page {
     }).catchError((e) {
       window.alert(e.toString());
     });
+  }
+
+  void createCampaign() {
+    createCampaignWindow =DialogWindow('Create New Campaign', '', 'create-campaign-window')..show();
   }
 }
