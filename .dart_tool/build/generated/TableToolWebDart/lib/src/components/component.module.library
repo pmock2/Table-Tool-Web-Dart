@@ -1,1 +1,0 @@
-{"isEntrypoint":false,"deps":["TableToolWebDart|lib/global.dart","TableToolWebDart|lib/table-tool-web.dart"],"parts":["TableToolWebDart|lib/src/components/header.dart","TableToolWebDart|lib/src/components/dialog.dart","TableToolWebDart|lib/src/components/dashboard-item.dart"],"conditionalDeps":[],"sdkDeps":["html","async"]}
