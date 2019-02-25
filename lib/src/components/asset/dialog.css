@@ -1,0 +1,165 @@
+.dialog_window {
+    background: white;
+    box-shadow: 0 2px 8px rgba(11, 24, 36, 0.4);
+    border-radius: 2px;
+    min-height: 200px;
+    min-width: 500px;
+    max-width: 600px;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    z-index: 1001;
+    transition: 0.2s;
+}
+
+.dialog_background_blocker {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    transition: 0.2s;
+}
+
+.dialog_window, .dialog_background_blocker {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    position: fixed;
+}
+
+.dialog_side_container {
+    display: block;
+    width: 48px;
+}
+
+.dialog_side_container[data-info=true] {
+    display: none;
+}
+
+.dialog_side_container[data-good=true] {
+    background: #26943a;
+}
+
+.dialog_side_container[data-good=true]:after {
+    content:"\f00c";
+    position:absolute;
+    color: white;
+    font-size: 25px;
+    top: 27px;
+    margin-left: 7px;
+}
+
+.dialog_side_container[data-warning=true] {
+    background: #fe901b;
+}
+
+.dialog_side_container[data-warning=true]:after {
+    content:"\f071";
+    position:absolute;
+    color: white;
+    font-size: 25px;
+    top: 27px;
+    margin-left: 7px;
+}
+
+.dialog_side_container[data-error=true] {
+    background: #e84638;
+}
+
+.dialog_side_container[data-error=true]:after {
+    content:"\f05e";
+    position:absolute;
+    color: white;
+    font-size: 25px;
+    top: 27px;
+    margin-left: 7px;
+}
+
+.dialog_inner_container {
+    padding: 25px 24px 18px 24px;
+    width: 100%;
+}
+
+.dialog_title {
+    font-weight: bold;
+    color: #081017;
+    font-size: 16px;
+}
+
+.dialog_close {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    color: #000;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.dialog_close:hover {
+    opacity: 1;
+    color: #e94838;
+}
+
+.dialog_hr {
+    display: block;
+    height: 1px;
+    border-top: solid 1px #2d8be6;
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+.dialog_button_container {
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+}
+
+.dialog_message {
+    font-size: 14px;
+    color: #081017;
+    padding-top: 20px;
+    overflow: auto;
+    max-height: 300px;
+    min-height: 55px;
+}
+
+.affirmative[data-text=yes], .affirmative[data-text=restart], .affirmative[data-text=ok] {
+    background: #005bb3;
+    color: white;
+    opacity: 0.85;
+}
+
+.negative {
+    margin-left: 7px;
+}
+
+/* OVERRIDES */
+
+.dialog_window {
+    background: #2b3744;
+}
+
+.dialog_title {
+    color: white;
+}
+
+.dialog_hr {
+    border: 0;
+    border-top: solid 1px #237adf;
+}
+
+.dialog_message, .dialog_close {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dialog_background_blocker {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    transition: 0.2s;
+}

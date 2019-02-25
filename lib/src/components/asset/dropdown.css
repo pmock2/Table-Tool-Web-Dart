@@ -1,0 +1,146 @@
+.drop_down {
+    transition: all 0.2s;
+    margin: 2px;
+}
+
+
+.drop_down_button {
+    color: #071015;
+    min-width: 100px;
+    text-align: left;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.drop_down[data-opened=true] .drop_down_button {
+    background: #c0c2c5;
+}
+
+.drop_down_button:before {
+    content: "\f0c9";
+    color: #071015;
+    display: inline-block;
+    font-family: "Font Awesome 5 free";
+    font-weight: 900;
+    font-size: 13px;
+    margin-right: 10px;
+    margin-left: 2px;
+}
+
+.combo_box_button {
+    font-size: 12px;
+    color: #081017;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #aaaeb2;
+}
+
+.combo_box_button[data-editing=true] {
+    border-color: #1773cc;
+}
+
+.combo_box_button_drop_arrow {
+    color: rgb(140, 144, 147);
+    display: inline-block;
+    font-weight: 900;
+    font-size: 15px;
+    float: right;
+    padding: 6px 7px 4px 7px;
+    cursor: pointer;
+    border-left: 1px solid rgba(170, 174, 178, 0);
+    transition: all 0.2s;
+}
+
+.combo_box_button_drop_arrow:hover {
+    border-left: 1px solid #aaaeb2;
+    color: #1a2328;
+}
+
+.drop_down[data-opened=true] .combo_box_button_drop_arrow {
+    background: #c1c3c7;
+    border-left: 1px solid #aaaeb2;
+    color: #1a2328;
+}
+
+.combo_box_button_text {
+    display: inline-block;
+    padding: 6px 7px 4px 7px;
+    cursor: text;
+    min-width: 40px;
+    max-width: 175px;
+}
+
+.drop_down_options {
+    font-size: 12px;
+    background: white;
+    max-width: 150px;
+    box-shadow: 0 2px 3px #0b18247a;
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    overflow: auto;
+}
+
+.drop_down[data-opened=true] .drop_down_options {
+    display: block;
+}
+
+.drop_down_option {
+    color: #081017;
+    opacity: 0.75;
+    cursor: pointer;
+    height: 22px;
+    padding: 7px 5px 3px 10px;
+}
+
+.drop_down_option:hover {
+    background: #1a73ca;
+    color: white;
+    opacity: 1;
+}
+
+.drop_down_option[data-drop_down_option_selected=true] {
+    color: #075bb1;
+    background: #d5d8da;
+}
+
+
+/* OVERRIDES */
+.drop_down {
+    margin: 0 0 0 10px;
+    display: inline-block;
+}
+
+.combo_box_button {
+    width: 99%;
+    height: 23px;
+    border-radius: 1px;
+    background: transparent;
+    border: rgba(255, 255, 255, 0.53) 1px solid;
+    text-align: left;
+}
+
+.combo_box_button_text {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 13px;
+    padding: 4px 7px;
+}
+
+.combo_box_button_drop_arrow {
+    padding: 4px 7px;
+}
+
+.drop_down_options {
+    max-height: 200px;
+    z-index: 1;
+}
+
+.drop_down_option {
+    text-align: left;
+    height: 16px;
+    color: white;
+    background: #03192f;
+}

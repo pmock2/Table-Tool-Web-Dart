@@ -1,0 +1,29 @@
+.radio_button {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #7d8298;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: border-bottom-width 0.2s, border-top-width 0.2s, border-left-width 0.2s, border-right-width 0.2s,
+    width 0.2s, height 0.2s;
+}
+
+.radio_button:hover {
+    border: 1px solid #555c64;
+}
+
+.radio_button[data-checked=true] {
+    height: 6px;
+    width: 6px;
+    border: 5px solid #2d8be6;
+}
+
+.radio_button[data-disabled=true] {
+    background: #c1c3c7 !important;
+}
+
+.radio_button[data-disabled=true][data-checked=true] {
+    height: 6px;
+    width: 6px;
+    border: 5px solid #555c64;
+}

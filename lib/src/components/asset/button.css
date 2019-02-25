@@ -1,0 +1,79 @@
+:root {
+    --button-color: rgba(8, 16, 23, 0.8);
+    --button-background: #eeeff0;
+    --button-border: 1px solid #c1c3c7;
+    --button-hover-color: rgb(8, 16, 23);
+    --button-hover-background: var(--button-background);
+}
+
+body[data-dark=true] {
+    --button-color: rgba(255, 255, 255, 0.61);
+    --button-background: #343e49;
+    --button-border: 0;
+    --button-hover-color: white;
+    --button-hover-background: #4c535d;
+}
+
+button {
+    min-width: 54px;
+    height: auto;
+    color: var(--button-color);
+    background: var(--button-background);
+    font-size: 12px;
+    cursor: pointer;
+    border: var(--button-border);
+    border-radius: 2px;
+    padding: 7px 14px;
+
+}
+
+button:hover {
+    color: var(--button-hover-color);
+    background: var(--button-hover-background);
+}
+
+button:focus {
+    outline:0;
+}
+
+.button_blue {
+    background: rgb(23, 115, 204) !important;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.button_red {
+    background: rgb(233, 72, 56) !important;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.button_red:hover, .button_blue:hover {
+    color: white;
+}
+
+/* OVERRIDES */
+button {
+    min-width: 54px;
+    height: auto;
+    color: rgba(255, 255, 255, 0.61);
+    background: #343e49;
+    font-size: 12px;
+    cursor: pointer;
+    border: 0 !important;
+    border-radius: 2px;
+    padding: 7px 14px;
+}
+
+button:hover {
+    color: #FFF;
+    background: #4c535d;
+}
+
+.button_blue:hover {
+    color: white;
+    background: rgb(23, 115, 204) !important;
+}
+
+.button_red:hover {
+    color: white;
+    background: #e94848 !important;
+}

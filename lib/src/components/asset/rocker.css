@@ -1,0 +1,28 @@
+.rocker_switch {
+    width: 32px;
+    height: 17px;
+    border-radius: 8px;
+    background: #86929d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rocker_switch[data-checked=true] {
+    background: #207a31;
+}
+
+.rocker {
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    position: relative;
+    background: #fff;
+    top: 2px;
+    left: 2px;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.rocker_switch[data-checked=true] .rocker {
+    left: 17px;
+}

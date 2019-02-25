@@ -1,0 +1,115 @@
+@keyframes open {
+    from {left:260px;}
+    to {left:0;}
+  }
+  @keyframes close {
+    from {left:0;}
+    to {left:260px;}
+  }
+  
+  .toaster {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    min-width: 20px;
+    z-index: 2;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .toaster[data-align=bottom] {
+    top:auto;
+    bottom: 40px;
+    flex-direction: column-reverse;
+  }
+  
+  .crust{
+    display: flex;
+    align-items:  flex-end;
+    height: 0;
+    width:0;
+    transition:height 0.5s linear, width 0.5s ease 0s;
+    /* position:relative; */
+    /* flex-shrink: 0; */
+  }
+  .crust[data-open=true] {
+    width: 250px;
+  }
+  .crust[data-open=false] {
+    transition:width 0.5s linear 0.5s, height 0.5s ease 0.5s;
+    width:0;
+    height:0;
+  }
+  
+  .toast-back {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: -1;
+    border-radius:1px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  
+    background:var(--background);
+    opacity:var(--opacity);
+  }
+  
+  .toast{
+    --opacity:0.7;
+    --background: rgb(1,123,233);
+    font-size: 11px;
+    color: white;
+    padding: 15px;
+    word-break: break-word;
+    position:absolute;
+    left:260px;
+    width:250px;
+    cursor:default;
+  }
+  
+  
+  .crust[data-open=true] .toast{
+    animation:open 0.2s linear 0.5s forwards 1;
+    cursor: pointer;
+  }
+  .crust[data-open=false] .toast{
+    animation:close 0.2s linear 0s forwards 1;
+  }
+  .toast-top{
+    position: absolute;
+    top: 2px;
+    right:20px;
+  }
+  .toast-x{
+    position: absolute;
+    background: rgba(255, 255, 255, 0.71);
+    height:20px;
+    width:20px;
+    right:0;
+    -webkit-mask:url('../../icons/light/Time_Light_12.svg') no-repeat center center;
+  }
+  .toast[data-pinned=true] .toast-x{
+    -webkit-mask:url('../../icons/light/Remove_Light_12.svg') no-repeat center center;
+    cursor: pointer;
+  }
+  
+  .toast[data-pinned=true] .toast-x:hover {
+    background: #fff;
+  }
+  
+  .toast:hover {--opacity:1;}
+  .toast[data-pinned=true] {--opacity:0.85;}
+  
+  .toast-content, .toast-content div {
+    cursor: pointer;
+  }
+  
+  
+  /* ------------------------------------------------- */
+  /* ----------------------- HANDLE SEVERITY COLORS -- */
+  /* ------------------------------------------------- */
+  
+  .toast[data-sev=error] {--background:#c90000}
+  .toast[data-sev=warning] {--background:#db01e9}
+  .toast[data-sev=information] {--background:#017be9}

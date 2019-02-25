@@ -5,7 +5,7 @@ version: 0.0.1
 #author: paytmock <email@example.com>
 
 environment:
-  sdk: ^2.0.0
+  sdk: '>=2.1.0 <3.0.0'
 
 #dependencies:
 #  path: ^1.4.1

@@ -1,0 +1,100 @@
+.pop_up_window, .pop_up_window_background_blocker {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    position: fixed;
+}
+
+.pop_up_window_background_blocker {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.pop_up_window {
+    min-width: 500px;
+    min-height: 450px;
+    -webkit-box-shadow: 0 2px 8px rgba(11, 24, 36, 0.4);
+    -moz-box-shadow: 0 2px 8px rgba(11, 24, 36, 0.4);
+    box-shadow: 0 2px 8px rgba(11, 24, 36, 0.4);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 0 24px 68px 24px;
+    background: #fff;
+    max-width: 40%;
+    z-index: 1001;
+}
+
+.pop_up_window_title_container {
+    margin-top: 25px;
+    border-bottom: 1px solid #2d8be6;
+    padding-bottom: 7px;
+    margin-bottom: 20px;
+}
+
+.pop_up_window_title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #081017;
+}
+
+.pop_up_window_close_button {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pop_up_window_close_button:hover {
+    color: #000;
+}
+
+.pop_up_window_main_content {
+    font-size: 14px;
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+}
+
+.pop_up_buttons_container {
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+}
+
+/* OVERRIDES */
+
+.pop_up_window {
+    background: #2b3744;
+}
+
+.pop_up_window_title_container {
+    border-bottom: 1px solid #237adf;
+}
+
+.pop_up_window_title {
+    color: #fff;
+    font-size: 18px;
+}
+
+.pop_up_window_close_button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+.pop_up_window_close_button:hover {
+    opacity: 0.7;
+    color: #fff;
+}
+
+.pop_up_window_background_blocker {
+    background: rgba(0, 0, 0, 0.5);
+}
