@@ -1,4 +1,4 @@
-part of component;
+part of visuals;
 
 enum WindowButtonType {OK_CANCEL, OK}
 
@@ -127,7 +127,15 @@ class PopUpWindow {
     }
 
     element.style.zIndex = (getHighestZIndex() + 1).toString();
+    element.style.opacity = '0';
+    _blocker.style.opacity = '0';
+    element.style.transform = 'scale(0.8) translateX(-62%) translateY(-62%)';
     document.body.append(element);
+    Timer(const Duration(milliseconds: 100), () {
+      _blocker.style.opacity = '1';
+      element.style.removeProperty('opacity');
+      element.style.removeProperty('transform');
+    });
   }
 
   void close() {
@@ -136,15 +144,16 @@ class PopUpWindow {
     });
 
     listeners.clear();
-
-    if (element != null) {
+    element.style.opacity = '0';
+    _blocker.style.opacity = '0';
+    element.style.transform = 'scale(0.8) translateX(-62%) translateY(-62%)';
+    Timer(const Duration(milliseconds: 200), () {
       element.remove();
       element = null;
-    }
-
-    if (_blockBackground && _blocker != null) {
-      _blocker.remove();
-      _blocker = null;
-    }
+      if (_blockBackground) {
+        _blocker.remove();
+        _blocker = null;
+      }
+    });
   }
 }

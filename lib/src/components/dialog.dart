@@ -1,4 +1,4 @@
-part of component;
+part of visuals;
 
 enum DialogType {OK_CANCEL, OK, RESTART, YES_NO}
 enum Level {INFORMATION, WARNING, ERROR, GOOD}
@@ -126,10 +126,10 @@ class DialogWindow {
   void _wireItUp() {
     //X button clicked
     listeners.add(
-        element.querySelector('#${_id}_dialog_close').onClick.listen((e) {
-          _onNegativeController.add(true);
-          close();
-        })
+      element.querySelector('#${_id}_dialog_close').onClick.listen((e) {
+        _onNegativeController.add(true);
+        close();
+      })
     );
 
     //cancel/no button clicked
@@ -149,17 +149,17 @@ class DialogWindow {
 
     //listen for enter and escape key
     listeners.add(
-        window.onKeyDown.listen((KeyboardEvent e) {
-          //enter
-          if (e.keyCode == 13) {
-            _onAffirmativeController.add(true);
-          }
-          //escape
-          else if (e.keyCode == 27) {
-            _onNegativeController.add(true);
-            close();
-          }
-        })
+      window.onKeyDown.listen((KeyboardEvent e) {
+        //enter
+        if (e.keyCode == 13) {
+          _onAffirmativeController.add(true);
+        }
+        //escape
+        else if (e.keyCode == 27) {
+          _onNegativeController.add(true);
+          close();
+        }
+      })
     );
   }
 
@@ -175,9 +175,13 @@ class DialogWindow {
 
     element.style.zIndex = (getHighestZIndex() + 1).toString();
     element.style.opacity = '0';
+    _backgroundBlocker.style.opacity = '0';
+    element.style.transform = 'scale(0.8) translateX(-62%) translateY(-62%)';
     document.body.append(element);
-    Timer(const Duration(milliseconds: 25), () {
+    Timer(const Duration(milliseconds: 100), () {
+      _backgroundBlocker.style.opacity = '1';
       element.style.removeProperty('opacity');
+      element.style.removeProperty('transform');
     });
   }
 
@@ -189,6 +193,7 @@ class DialogWindow {
     listeners.clear();
     element.style.opacity = '0';
     _backgroundBlocker.style.opacity = '0';
+    element.style.transform = 'scale(0.8) translateX(-62%) translateY(-62%)';
     Timer(const Duration(milliseconds: 200), () {
       element.remove();
       element = null;

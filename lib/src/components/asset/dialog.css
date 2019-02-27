@@ -9,15 +9,16 @@
     top: 50%;
     display: flex;
     z-index: 1001;
-    transition: 0.2s;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 
 .dialog_background_blocker {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
     z-index: 1000;
-    transition: 0.2s;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+    opacity: 0;
 }
 
 .dialog_window, .dialog_background_blocker {
@@ -135,31 +136,4 @@
 
 .negative {
     margin-left: 7px;
-}
-
-/* OVERRIDES */
-
-.dialog_window {
-    background: #2b3744;
-}
-
-.dialog_title {
-    color: white;
-}
-
-.dialog_hr {
-    border: 0;
-    border-top: solid 1px #237adf;
-}
-
-.dialog_message, .dialog_close {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.dialog_background_blocker {
-    background: rgba(0, 0, 0, 0.4);
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    transition: 0.2s;
 }
